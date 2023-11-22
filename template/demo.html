@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    username: <input type="text" name="username" id="username">
+    password: <input type="password" name="password" id="password">
+    <button onclick="submit()">提交</button>
+  </body>
+</html>
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+  function submit(){
+    let username=$("#username").val();
+    let password=$("#password").val();
+    $.ajax({
+            type: 'post',
+            url: '../login',
+            data: {
+                'username': username,
+                'password':password,
+            },
+            success: function (result) {
+                console.log(result.code);
+                window.location.href="index"
+            }
+        });
+  }
+</script>
