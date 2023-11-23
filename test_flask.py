@@ -65,13 +65,13 @@ def login():  # put application's code here
 
 
 @app.route('/index')
-@login_required
+# @login_required
 def index():  # put application's code here    
     return render_template('index.html')
 
 
 @app.route('/file_submit',methods=['POST'])
-@login_required
+# @login_required
 def file_submit():  # put application's code here    
     print  (request.files)  
     file=request.files.get('before')
@@ -102,4 +102,4 @@ def file_submit():  # put application's code here
 
 
 if __name__ == '__main__':
-    app.run(port=80)
+    app.run()
