@@ -92,8 +92,8 @@ def file_submit():  # put application's code here
         file.save(name2)
     else:
         return '上传失败'
-    data1=pd.read_csv(name1,encoding="utf-8",engine="python")
-    data2=pd.read_csv(name2,encoding="utf-8",engine="python")
+    data1=pd.read_csv(name1,encoding="utf-8")
+    data2=pd.read_csv(name2,encoding="utf-8")
 
     result=pd.merge(data1,data2,how="left",on=['成员'],suffixes=('_before', '_now'))
     result['贡献排名变化']=result[' 贡献排行_now']-result[' 贡献排行_before']
